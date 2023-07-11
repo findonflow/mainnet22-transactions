@@ -5,15 +5,11 @@ import (
 	"fmt"
 
 	"github.com/bjartek/overflow"
-	"go.uber.org/zap"
 )
 
 func main() {
 
 	o := overflow.Overflow(overflow.WithNetwork("mainnet"))
-
-	logger, _ := zap.NewDevelopment()
-	defer logger.Sync()
 
 	ctx := context.Background()
 	block, err := o.GetBlockAtHeight(ctx, 54564338)
